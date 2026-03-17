@@ -1,172 +1,149 @@
-# Projeto-em-CSS
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Agora | Grécia Antiga</title>
+    <title>The Agora | Ancient Greece</title>
     <style>
-        :root {
-            --gold: #d4af37;
-            --marble: #f5f5f5;
-            --deep-blue: #0a192f;
-            --text-gray: #a8b2d1;
-            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-        }
-
+        /* Resets de CSS para evitar bugs de margem */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+        }
+
+        :root {
+            --gold: #d4af37;
+            --deep-blue: #050c18;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --text-main: #e0e0e0;
         }
 
         body {
             background-color: var(--deep-blue);
-            color: var(--marble);
-            line-height: 1.6;
+            color: var(--text-main);
             overflow-x: hidden;
         }
 
+        /* Hero Section ajustada */
         header {
-            height: 60vh;
+            min-height: 80vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            background: linear-gradient(rgba(10, 25, 47, 0.8), rgba(10, 25, 47, 0.8)), 
-                        url('https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&q=80&w=1000');
+            padding: 20px;
+            background: linear-gradient(rgba(5, 12, 24, 0.7), rgba(5, 12, 24, 0.9)), 
+                        url('https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?q=80&w=2000') no-repeat center center;
             background-size: cover;
-            border-bottom: 4px solid var(--gold);
+            border-bottom: 2px solid var(--gold);
         }
 
         header h1 {
-            font-size: clamp(3rem, 10vw, 5rem);
-            text-transform: uppercase;
-            letter-spacing: 10px;
+            font-size: clamp(2.5rem, 8vw, 5rem);
             color: var(--gold);
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+            text-transform: uppercase;
+            letter-spacing: 8px;
+            margin-bottom: 10px;
         }
 
         header p {
-            font-style: italic;
-            color: var(--text-gray);
             font-size: 1.2rem;
+            color: #888;
+            max-width: 600px;
         }
 
+        /* Grid de Conteúdo */
         .container {
-            max-width: 1100px;
-            margin: -50px auto 50px;
-            padding: 20px;
+            max-width: 1200px;
+            margin: -60px auto 60px;
+            padding: 0 20px;
         }
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
         }
 
         .card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(212, 175, 55, 0.2);
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.1);
             padding: 30px;
-            border-radius: 12px;
-            transition: var(--transition);
-            position: relative;
-            cursor: pointer;
+            border-radius: 15px;
+            transition: all 0.4s ease;
         }
 
         .card:hover {
-            transform: translateY(-10px);
-            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-12px);
             border-color: var(--gold);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+        }
+
+        .badge {
+            background: var(--gold);
+            color: #000;
+            padding: 4px 12px;
+            font-size: 0.7rem;
+            font-weight: 900;
+            border-radius: 4px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            display: inline-block;
         }
 
         .card h2 {
             color: var(--gold);
             margin-bottom: 15px;
-            font-size: 1.5rem;
-            display: flex;
-            align-items: center;
-        }
-
-        .card h2::before {
-            content: '🏛️';
-            margin-right: 10px;
-            font-size: 1.2rem;
+            font-size: 1.6rem;
         }
 
         .card p {
-            color: var(--text-gray);
+            color: #aaa;
             font-size: 0.95rem;
-        }
-
-        .badge {
-            display: inline-block;
-            background: var(--gold);
-            color: var(--deep-blue);
-            padding: 2px 10px;
-            border-radius: 20px;
-            font-weight: bold;
-            font-size: 0.7rem;
-            margin-bottom: 10px;
-            text-transform: uppercase;
+            line-height: 1.6;
         }
 
         footer {
             text-align: center;
             padding: 40px;
-            color: var(--text-gray);
+            opacity: 0.5;
             font-size: 0.8rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 600px) {
-            header h1 { font-size: 2.5rem; }
-            .container { margin-top: 20px; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>The Agora</h1>
-        <p>Onde o pensamento ocidental começou a ser codificado.</p>
+        <h1>THE AGORA</h1>
+        <p>A "Deep Web" do conhecimento clássico. Onde os hackers da lógica criaram o mundo moderno.</p>
     </header>
 
     <div class="container">
         <div class="grid">
             <div class="card">
-                <span class="badge">Mindset</span>
+                <span class="badge">Legacy</span>
                 <h2>Filosofia</h2>
-                <p>Esqueça o "porque sim". Sócrates, Platão e Aristóteles hackearam a mente humana para entender a ética, a política e a própria realidade.</p>
+                <p>Sócrates não tinha Wi-Fi, mas conectou mentes. Ele ensinou que questionar é o código-fonte da sabedoria.</p>
             </div>
-
             <div class="card">
                 <span class="badge">Lore</span>
                 <h2>Mitologia</h2>
-                <p>Deuses com falhas humanas, heróis em jornadas épicas e monstros que representam nossos medos. É o roteiro original de todo o entretenimento moderno.</p>
+                <p>Deuses, monstros e heróis. A mitologia grega é o Universo Cinematográfico original, mas com muito mais drama.</p>
             </div>
-
             <div class="card">
-                <span class="badge">Social Tech</span>
+                <span class="badge">Politics</span>
                 <h2>Democracia</h2>
-                <p>A primeira versão de um sistema operacional político onde o "usuário" (cidadão) tinha voz ativa na gestão da cidade-estado.</p>
-            </div>
-
-            <div class="card">
-                <span class="badge">Engineering</span>
-                <h2>Ciência & Arte</h2>
-                <p>Da geometria de Pitágoras à proporção áurea na arquitetura. Eles não apenas construíram prédios; eles descobriram as leis do design universal.</p>
+                <p>O primeiro sistema operacional social. Direto de Atenas: um governo feito de cidadãos para cidadãos.</p>
             </div>
         </div>
     </div>
 
     <footer>
-        &copy; 2026 Hellenic Hub - Criado para mentes curiosas.
+        &copy; 2026 - Debugando a História
     </footer>
 
 </body>
